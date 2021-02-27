@@ -17,8 +17,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.web.server.ResponseStatusException;
 
-@SpringBootTest
+
 @ActiveProfiles("test")
+@SpringBootTest(classes = { CourseRepository.class, CourseService.class, CourseEntity.class, RegistrationEntity.class })
 public class CourseServiceTest {
 	
 	@MockBean
@@ -83,6 +84,7 @@ public class CourseServiceTest {
 	@Test
 	public void testCreateCourse() {
 		course.setTitle("Trim me              ");
+		course.setParticipants(null);
 		Mockito.when(repository.save(Mockito.any())).thenReturn(course);
 		Assertions.assertEquals(course.getTitle().trim(), service.createCourse(course).getTitle());
 	}

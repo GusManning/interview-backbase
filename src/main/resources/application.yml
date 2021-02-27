@@ -10,8 +10,8 @@ spring:
 spring:
   profiles: dev
   datasource:
-    url: jdbc:h2:mem:testdb
-#    url: jdbc:h2:file:./demo
+#    url: jdbc:h2:mem:testdb
+    url: jdbc:h2:file:~/deleteMe
     driverClassName: org.h2.Driver
     username: sa
     password: password
@@ -27,7 +27,8 @@ spring:
 
 ---
 
-spring:  profiles: test
+spring:
+  profiles: test
   datasource:
     url: jdbc:h2:mem:testdb
     driverClassName: org.h2.Driver

@@ -24,7 +24,7 @@ import org.springframework.web.context.WebApplicationContext;
 import com.backbase.TestUtil;
 
 
-@WebMvcTest
+@WebMvcTest(CourseController.class)
 @ActiveProfiles("test")
 @EntityScan(basePackages = {"com.backbase.q1"})
 public class CourseControllerTest {

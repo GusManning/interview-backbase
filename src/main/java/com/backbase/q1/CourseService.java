@@ -113,6 +113,7 @@ public class CourseService {
 	 * @param registration RegistrationEntity to be added or removed
 	 * @param remove boolean true if we are removing a registration.
 	 * @return Updated CourseEntity
+	 * @todo look into use of @Transactional annotation
 	 */
 	private CourseEntity changeRegistration(RegistrationEntity registration, boolean remove) {
 		CourseEntity course = this.getCourseById(registration.getCourseId());

@@ -16,10 +16,10 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
-@SpringBootTest
 @ActiveProfiles("test")
+@SpringBootTest
 @TestMethodOrder(OrderAnnotation.class)
-public class BackbaseApplicationTest {
+public class BackbaseQ1IntegrationTest {
 
 	public MockMvc mvc;
 	

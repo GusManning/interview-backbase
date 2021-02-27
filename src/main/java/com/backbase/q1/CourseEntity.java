@@ -46,6 +46,7 @@ public class CourseEntity {
 	
 	@Column(name="title",nullable=false,length=TITLE_LENGTH)
 	private String title;
+	
 	/**
 	 * Start and End dates for the course.
 	 */
@@ -53,10 +54,11 @@ public class CourseEntity {
 	private LocalDate startDate;
 	@Column(name="end_date",nullable=false)
 	private LocalDate endDate;
+	
+	@Column(name="capacity",nullable=false)
 	/**
 	 * Max number of students in this course.
 	 */
-	@Column(name="capacity",nullable=false)
 	private Integer capacity;
 	
 	@Transient
