@@ -1,36 +1,11 @@
+
 server:
   port: 5000
 
 spring:
-  profiles:
-    acitve: "dev"
-
----
-
-spring:
-  profiles: dev
   datasource:
-#    url: jdbc:h2:mem:testdb
-    url: jdbc:h2:file:~/deleteMe
-    driverClassName: org.h2.Driver
-    username: sa
-    password: password
-  jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
-    show-sql: true
-    generate-ddl: true
-    hibernate:
-      ddl-auto: update
-  h2:
-    console:
-      enabled: false
-
----
-
-spring:
-  profiles: test
-  datasource:
-    url: jdbc:h2:mem:testdb
+    #url: jdbc:h2:mem:testdb
+    url: jdbc:h2:file:./deleteMe
     driverClassName: org.h2.Driver
     username: sa
     password: password

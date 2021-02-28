@@ -12,7 +12,6 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
-import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
@@ -21,7 +20,6 @@ import org.springframework.web.context.WebApplicationContext;
 
 
 @WebMvcTest(ForumController.class)
-@ActiveProfiles("test")
 @EntityScan(basePackages = {"com.backbase.q3"})
 public class ForumControllerTest {
 

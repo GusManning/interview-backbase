@@ -8,6 +8,7 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.UpdateTimestamp;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Data
 @Entity
@@ -17,11 +18,16 @@ import lombok.Data;
  * A database created timestamp is used for record removal.
  */
 public class LinkEntity {
+	// I could have probably replaced the getter for this with a reference to HashCode
+	// I feel like that was what the question wanted as this was intended to be a test of Lombok
+	// knowledge I just opted not to do that as I felt it wasn't best practice.
 	@Id
+	@EqualsAndHashCode.Exclude
 	private Integer id;
 	/**
 	 * The tiny version of the link.
 	 */
+	@EqualsAndHashCode.Exclude
 	private String shortLink;
 	/**
 	 * full version of a link.
@@ -31,5 +37,6 @@ public class LinkEntity {
 	/**
 	 * timestamp used to find old records on the database.
 	 */
+	@EqualsAndHashCode.Exclude
 	private Timestamp createdOn;
 }
