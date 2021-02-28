@@ -42,4 +42,18 @@ public class LinkEntityTest {
 		Assertions.assertEquals("short", link.getShortLink());
 	}
 	
+	@Test
+	public void testHashCode() {
+		Assertions.assertEquals(69699417, link.hashCode());
+	}
+	
+	@Test
+	public void testEquals() {
+		LinkEntity link2 = new LinkEntity();
+		link.setLongLink(link.getLongLink());
+		Assertions.assertFalse(link.equals(link2));
+		Assertions.assertFalse(link.equals(new Object()));
+		Assertions.assertTrue(link.equals(link));
+	}
+	
 }

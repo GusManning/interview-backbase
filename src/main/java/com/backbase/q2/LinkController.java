@@ -1,6 +1,5 @@
 package com.backbase.q2;
 
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -26,8 +25,4 @@ public class LinkController {
 		return new ResponseEntity<String>(service.tinyToLong(tiny),new HttpHeaders(), HttpStatus.OK);
 	}
 	
-	@GetMapping("/test")
-	public ResponseEntity<List<LinkEntity>> showAllLinks() {
-		return new ResponseEntity<List<LinkEntity>>(service.findAllLinks(),new HttpHeaders(), HttpStatus.OK);
-	}
 }
