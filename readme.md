@@ -1,13 +1,12 @@
 # interview-backbase
 
-H1. Overview
 This project is a code test developed for Backbase.  This project conists of three parts tagged as Q1, Q2 and Q3. It is developed in Java 8, using Spring 2.2.2 and Maven.  
 
-H2. Running
+## Running
 
 You can run this either through your IDE of choice, launching com.backbase.BackbaseApplication as a Spring Boot Application.  Or through using Maven 'mvn spring-boot:run' works for running the application and 'mvn test' works for testing. 
 
-H2. Q1
+## Q1
 
 Question 1 is a Course registration API 
 
@@ -109,11 +108,11 @@ Response should be:
 
 Note: since I used @JsonSetter to make cancelations and registrations the same object you could technically use cancelDate for a Registration or registrationDate for a cancelation and it should work.
 
-H3. Thoughts
+### Thoughts
 
 An Interesting start, I wrestled with the idea of using Data Transfer Objects made with Lombok to get the Json to match the requested outputs or using Jackson @JsonValue to define my own serialization but settled on what might a slightly more hackey solution of modifying the objects based on situation.
 
-H2. Q2
+## Q2
 
 Question 2 was to create a simple version of bit.ly which takes in links and returns a short code that can then be exchanged for the original link.
 
@@ -130,11 +129,11 @@ Will give back the original `https://stash.backbase.com/projects/PO/repos/paymen
 * Will return 404 if the tiny is no longer in the database, or was never in the database.
 * Will return 400 if tiny is not a hash string.
 
-H3. Thoughs
+### Thoughs
 
 I originally setup profiles so that I could test independently while still having database persistance but later abandoned that when I found out how to annotate test cases to reset the database.  I felt the question strongly encouraged me to use a hash of the URL to make the code.  I later realized that this was a Hexadecimal code when my 62 bit maping was too short and that no non hex characters were used.  I later realized that my encoder could simply be replaced with Integer's fuctions to make a hex string and decode hex strings.  I kept the encoder service as a class as I feel the tests were useful as when I switched over to Integer from my original code heavy approch they found immediate problems.  I can't say I really like the idea of using a hash based code as there is more risk of collision, mabye I could have devised a collusion solution similar to how HashMap works but since I duplicated the desired output I figured this is what the client wanted.
 
-H2. Q3
+## Q3
 
 Question 3 is a simple forum API which allows for the posting of questions and replys to those questions.
 
@@ -211,6 +210,6 @@ The response should look like:
 ]
 ```
 
-H3. Thoughs
+### Thoughs
 
 I felt this one really came together.  I'd never had to do a self referencing ManyToOne relationship in JPA before.  This would have been a lot easier to conceptualize with a traditional SQL database rather than Hibernate.  Lombok with Data Transfer Objects to handle worked very well.  The Test Suite is way bigger than the hand written code.  I also realized I probably could have used @NotNull and @NotBlank to ensure Entity validation.  Although I do like having more control over the message I send back to the user.  Maybe next time I'll consider a using a Validator to make a list of issues with submitted objects.  The downside of Lombok is the extra methods careless use of @Data generates.  Extra equals and hashcode methods really hurt the code coverage of test suites for Q1 and Q2 before I clued in on why my code coverage was barely 75%.  My only regret is maybe a more interface based approch would have simplifed testing.  I should probably look into tools for automating test writing.  
