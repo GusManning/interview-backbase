@@ -12,7 +12,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @SpringBootApplication
 @EnableScheduling
 @EnableConfigurationProperties
-@EntityScan(basePackages = {"com.backbase.q1", "com.backbase.q2"})
+@EntityScan(basePackages = {"com.backbase.q1", "com.backbase.q2", "com.backbase.q3"})
 public class BackbaseApplication {
     public static void main(String[] args) {
     	

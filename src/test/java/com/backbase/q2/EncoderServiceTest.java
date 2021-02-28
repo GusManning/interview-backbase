@@ -8,7 +8,6 @@ import org.springframework.web.server.ResponseStatusException;
 
 public class EncoderServiceTest {
 
-	//encoder service dosn't have autowired components.
 	EncoderService service;
 	
 	@BeforeEach
