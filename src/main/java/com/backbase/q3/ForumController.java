@@ -21,8 +21,8 @@ public class ForumController  {
 	private ForumService service;
 	
 	@PostMapping
-	public ResponseEntity<QuestionEntity> postQuestion(@RequestBody QuestionEntity question) {
-		return new ResponseEntity<QuestionEntity>(service.createOrUpdate(question), new HttpHeaders(), HttpStatus.CREATED);
+	public ResponseEntity<QuestionDTO> postQuestion(@RequestBody QuestionEntity question) {
+		return new ResponseEntity<QuestionDTO>(service.create(question), new HttpHeaders(), HttpStatus.CREATED);
 	}
 	
 	@PostMapping("/{questionId}/reply")
@@ -36,8 +36,8 @@ public class ForumController  {
 	}
 	
 	@GetMapping
-	public ResponseEntity<List<QuestionEntity>> getAllQuestions() {
-		return new ResponseEntity<List<QuestionEntity>>(service.findAllQuestions(), new HttpHeaders(), HttpStatus.OK);
+	public ResponseEntity<List<QuestionDTO>> getAllQuestions() {
+		return new ResponseEntity<List<QuestionDTO>>(service.findAllQuestions(), new HttpHeaders(), HttpStatus.OK);
 	}
 	
 
