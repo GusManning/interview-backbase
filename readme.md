@@ -116,13 +116,13 @@ An Interesting start, I wrestled with the idea of using Data Transfer Objects ma
 
 Question 2 was to create a simple version of bit.ly which takes in links and returns a short code that can then be exchanged for the original link.
 
-### Turn a long URL into a short Hex String (GET `http://localhost:5000/short?url=https://stash.backbase.com/projects/PO/repos/payment-order-integration-spec/browse/src/main/resources/schemas/definitions.json#38` )
+### Turn a long URL into a short Hex String (GET `http://localhost:5000/short?url=GOOGLE.COM` )
 
 This will persist the URL in the database for 30 minutes until a scheduled job delete is.  
 
 * Will return Http Code 400 if url is blank or not a valid URL.
 
-### `http://localhost:5000/long?tiny=44C0173` **immediately** 
+### Turn a hex string into a URL (GET `http://localhost:5000/long?tiny=44C0173` )
 
 Will give back the original `https://stash.backbase.com/projects/PO/repos/payment-order-integration-spec/browse/src/main/resources/schemas/definitions.json` if called within half an hour of the above command.
 
